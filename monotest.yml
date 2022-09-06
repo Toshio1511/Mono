@@ -1,0 +1,17 @@
+trigger: 
+- main
+
+pool: 
+   vmImage: ubuntu-latest
+
+jobs:
+- deployment: VMDeploy
+  displayName: Deploy to VM
+  environment: 
+   name: mono_api_test
+   resourceType: VirtualMachine
+  strategy:
+     runOnce:
+        deploy:   
+          steps:
+            - script: echo "Hello world"
